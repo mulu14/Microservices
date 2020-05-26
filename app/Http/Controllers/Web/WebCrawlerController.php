@@ -36,7 +36,7 @@ class WebCrawlerController extends Controller
      */
     public function index()
     { 
-        logger($this->request->input('name')); 
+        logger($this->request->get('name')); 
         $companiesList = $this->getCompaniesList(); 
         return view('webcrawler.webcrawler', compact('companiesList')); 
     }

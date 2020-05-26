@@ -10,6 +10,7 @@ use Symfony\Component\DomCrawler\Crawler;
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Client;
 use GuzzleHttp\Cookie\CookieJar; 
+use Carbon\Carbon; 
 
 
 /**
@@ -57,5 +58,12 @@ class ShoeController extends Controller
 
 		 $res = (string)$request->getBody(); 
 		 //logger($res); 
+		 $from = new Carbon(); 
+		 $to  = (new Carbon())->addDays(30); 
+		 $fin = [
+		 	"from" => $from->toDateString(), 
+		 	"to" => $from->toDateString(),
+		 ]; 
+		 logger($fin); 
 	}
 }
